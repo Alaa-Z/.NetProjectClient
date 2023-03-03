@@ -5,15 +5,15 @@ import { useState, useEffect } from 'react';
 export function Services(){
     const [serviceData, setServiceData] = useState([]);
 
-    useEffect(() => {
-        async function fetchData() {
-            const res = await fetch('https://localhost:7014/api/ServiceApi');
-            const data = await res.json();
-            // console.log(data);
-            setServiceData(data);
-        }
-        fetchData();
-    }, []);
+    // useEffect(() => {
+    //     async function fetchData() {
+    //         const res = await fetch('https://localhost:7014/api/ServiceApi');
+    //         const data = await res.json();
+    //         // console.log(data);
+    //         setServiceData(data);
+    //     }
+    //     fetchData();
+    // }, []);
 
     return (
         <Layout>
