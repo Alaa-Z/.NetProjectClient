@@ -18,15 +18,15 @@ function HomePage(){
 
     return(
         <Layout> 
-        <h1 className="flex justify-center mt-8 text-xlg font-bold">
+        <h1 className="flex justify-center mt-8 font-bold sm:text-xl sm:leading-relaxed">
             We Provide Best Solutions With      
         </h1>
         <div className="p-10  grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-20">
             {serviceData.map((item) => (
                 <div key={item.id} className="rounded overflow-hidden shadow-lg mx-auto">
-                    <img className="w-full" src={item.imagePath} alt={item.altText}></img>
+                    <img className="w-full mb-8" src={item.imagePath} alt={item.altText}></img>
                     <div className="px-6 py-4">
-                        <div className="font-medium text-xl mb-2 text-center">
+                        <div className="font-normal text-xl text-center mb-8 sm:text-xl sm:leading-relaxed">
                             {item.name}
                         </div>
                         {/* <p className="text-gray-700 text-base">
