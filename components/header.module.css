@@ -21,7 +21,7 @@
   z-index: 1;
   z-index: 1;
   color: #fff;
-  font-family: "Helvetica Neue", sans-serif; /* Change to your desired font family */
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5); /* Add a subtle shadow effect */
+  font-family: "Helvetica Neue", sans-serif; 
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
   padding: 20px;
 }
