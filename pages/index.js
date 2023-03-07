@@ -28,7 +28,7 @@ function HomePage(){
             </span>
         </h1>
         
-        <div className="p-10 max-w-7xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-20 mx-auto">
+        <div className="p-10 max-w-7xl grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 xl:grid-cols-3 gap-20 mx-auto">
             {serviceData.map(service => (
                 <Service
                 key={service.id}
