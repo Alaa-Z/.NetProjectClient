@@ -1,5 +1,6 @@
 import Layout from "../components/layout";
 import { useState, useEffect } from 'react';
+import Link from 'next/link'
 
 const serviceApi= `https://localhost:7014/api/ServiceApi`;
 
@@ -18,20 +19,18 @@ function HomePage(){
 
     return(
         <Layout> 
-
         <h1 className="flex justify-center mt-8 mb-8 font-bold sm:text-xl sm:leading-relaxed relative">
             We Provide Best Solutions With
             <span className="block absolute bottom-0 left-1/2 w-1/4 transform -translate-x-1/2">
                 <span className="border-b-2 border-pink-600 block h-1">
                 </span>
             </span>
-            </h1>
-
+        </h1>
 
         <div className="p-10 max-w-7xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-20  mx-auto">
             {serviceData.slice(0, 3).map((item) => (
                 <div key={item.id} className="rounded overflow-hidden shadow-lg mx-auto">
-                    <img className="w-full mb-8" src={item.imagePath} alt={item.altText}></img>
+                    <img className="w-full mb-8 service-img" src={item.imagePath} alt={item.altText}></img>
                     <div className="px-6 py-4">
                         <div className="font-normal text-xl text-center mb-8 sm:text-xl sm:leading-relaxed">
                             {item.name}
@@ -43,6 +42,15 @@ function HomePage(){
                 </div>
             ))}
         </div>
+        <div className="pl-10 flex justify-start  items-center mt-8 mb-8 font-bold sm:text-xl sm:leading-relaxed relative">
+            <Link href="/services" className="mr-4">
+                See All Services
+            </Link>
+            <span className="block absolute bottom-0  w-1/6 transform">
+                <span className="border-b-2 border-pink-600 block"></span>
+            </span>
+        </div>
+
     </Layout>
     )
 }
