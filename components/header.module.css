@@ -1,0 +1,27 @@
+
+.headerSection {
+  position: relative;
+  opacity: 0.9;
+}
+
+.headerSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4); 
+  z-index: -1;
+  
+}
+
+.headerSection h1, .headerSection p {
+  position: relative;
+  z-index: 1;
+  z-index: 1;
+  color: #fff;
+  font-family: "Helvetica Neue", sans-serif; /* Change to your desired font family */
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5); /* Add a subtle shadow effect */
+  padding: 20px;
+}
