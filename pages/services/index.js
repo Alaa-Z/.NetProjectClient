@@ -1,5 +1,5 @@
 
-import Layout from "../../components/layout";
+import Nav from "../../components/Nav";
 import { useState, useEffect } from 'react';
  
 // const serviceApi= `https://localhost:7014/api/ServiceApi`;
@@ -20,9 +20,9 @@ export function Services(){
 
 
     return (
-        <Layout>
+        <Nav>
             <h1> Services page</h1>
-        </Layout>
+        </Nav>
     );
 }
 
