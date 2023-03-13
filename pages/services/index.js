@@ -20,9 +20,11 @@ export function Services(){
 
 
     return (
-        <Nav>
-            <h1> Services page</h1>
-        </Nav>
+        <>
+        <Nav />
+        <h1> Services page</h1>
+        </>
+       
     );
 }
 

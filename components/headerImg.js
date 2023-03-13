@@ -9,7 +9,7 @@ const HeaderImg = () => {
     <div className="mx-auto max-w-screen-xl mb-20 px-4 py-24 lg:flex lg:h-screen lg:items-center">
       <div className="mx-auto max-w-xl text-center">
         <h1 className="text-3xl font-extrabold sm:text-5xl mb-10 mt-10">
-        Digital View agency 
+        Digital View Agency 
         </h1>
         <h1 className="text-3xl font-extrabold text-blue-700 sm:block">
         Experts in bringing brands to life digitally.

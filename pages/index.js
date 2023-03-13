@@ -32,12 +32,14 @@ function HomePage(){
             {serviceData.map(service => (
                 <Service
                 key={service.id}
+                id= {service.id}
                 name = {service.name}
                 imagePath = {service.imagePath}
                 altText = {service.altText}
                 />   
             ))}
         </div>
+
         
         <div className="pl-10 flex justify-start  items-center mt-8 mb-8 font-bold sm:text-xl sm:leading-relaxed relative">
             <Link href="/services" className="mr-4">
