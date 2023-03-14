@@ -28,9 +28,29 @@ export default function ServiceDetails(props){
         return () => {
           typed.destroy();
         }
-      }, []);
-      
+    }, []);
 
+    // get the number form fetch all service 
+    const numServices = props.allServices.length;
+
+    // next and previous Ids 
+    const nextServiceId = Number(serviceId) + 1; 
+    const previousServiceId = Number(serviceId) - 1;
+
+    // to check if there is next or previous id 
+    const hasNextService = nextServiceId <= numServices;
+    const hasPreviousService = previousServiceId >= 1;
+
+    // to handle the clikc event 
+    const handleNextClick = () => {
+        router.push(`/services/${nextServiceId}`);
+    };
+    
+    const handlePreviousClick = () => {
+        router.push(`/services/${previousServiceId}`);
+    };
+    
+    
     return (
         <>
         <Nav />
@@ -51,6 +71,22 @@ export default function ServiceDetails(props){
                     </div>
                 </div>
             </div>
+            
+           <div className="flex justify-center my-8">
+                {hasPreviousService && 
+                <button onClick={handlePreviousClick} className="border-2 border-pink-500 rounded-full py-2 px-6 mx-2">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>}
+
+                {hasNextService && 
+                <button onClick={handleNextClick} className="border-2 border-pink-500 rounded-full py-2 px-6 mx-2">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>}
+            </div>
         </>
     );
 }
@@ -60,6 +96,7 @@ export async function getServerSideProps(context){
     const { query: { serviceId } } = context;
     // I added this line after I got a self signed certificate error 
     process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+
     // API for get a service 
     const serviceApi= `https://localhost:7014/api/ServiceApi/${serviceId}`;
     const res = await fetch(serviceApi);
@@ -67,10 +104,16 @@ export async function getServerSideProps(context){
     // To get image path
     const url = new URL(serviceDetails.imagePath, serviceApi);
     serviceDetails.imagePath = url.toString();
-    // console.log(serviceDetails);
+
+    // API for get all services to get the lengt 
+        const servicesApi = `https://localhost:7014/api/ServiceApi/`;
+        const allServicesRes = await fetch(servicesApi);
+        const allServices = await allServicesRes.json();
+
     return {
         props: {
-            serviceDetails
+            serviceDetails,
+            allServices
         }
     }
 }
