@@ -40,7 +40,6 @@ function HomePage(){
             ))}
         </div>
 
-        
         <div className="pl-10 flex justify-start  items-center mt-8 mb-8 font-bold sm:text-xl sm:leading-relaxed relative">
             <Link href="/services" className="mr-4">
                 See All Services

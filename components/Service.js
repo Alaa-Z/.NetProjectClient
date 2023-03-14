@@ -4,22 +4,19 @@ import Link from 'next/link'
 const Service = ({key, id, name, imagePath, altText}) => {
     return (
         <Fragment>
-            <div key={key} className="rounded overflow-hidden shadow-lg mx-auto">
+            <div key={key} className="shadow-lg mx-auto  hover:bg-gray-100 hover:transform hover:scale-105 transition-all duration-300">
                 <img className="w-full mb-8 service-img" src={imagePath} alt={altText}></img>
-                <div className="px-6 py-4">
+                <div className="px-6 py-4 flex flex-col ">
                     <div className="font-normal text-xl text-center mb-8 sm:text-xl sm:leading-relaxed">
-                        {name}
+                    {name}
                     </div>
-                    {/* <p className="text-gray-700 text-base">
-                        {item.details}
-                    </p> */}
+                    <Link
+                    className="block rounded bg-pink-600 text-sm  text-white shadow px-4 py-1 self-end"
+                    href={`/services/${id}`}
+                    >
+                    Explore
+                    </Link>
                 </div>
-                <Link
-                className="underline hover:underline-offset-4 mt-8"
-                href={`/services/${id}`}
-                >
-                Read more
-            </Link>
             </div>
         </Fragment>
     )
