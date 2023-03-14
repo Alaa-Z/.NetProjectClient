@@ -31,13 +31,15 @@ export default function ServiceDetails(props){
       }, []);
       
 
-
     return (
         <>
         <Nav />
             <hr className="bg-pink-600 py-4 px-8 ">
             </hr>
-            <div className="mx-auto py-8 px-4">
+            <div className="heroImage-container">
+                <img src={serviceDetails.imagePath} alt={serviceDetails.altText} className="heroImage" />
+            </div>
+            <div className="mx-auto py-8 px-10">
                 <div className="md:w-1/2 pr-8 w-full mx-auto mt-8 mb-8">
                     <h1 ref={titleRef} 
                         className="flex justify-center mt-8 mb-8 font-bold sm:text-xl sm:leading-relaxed relative">
@@ -47,10 +49,6 @@ export default function ServiceDetails(props){
                         dangerouslySetInnerHTML={{__html: serviceDetails.details}}
                         >
                     </div>
-                </div>
-
-                <div className="md:w-1/2 mx-auto ">
-                    <img src={serviceDetails.imagePath} alt={serviceDetails.altText} className="w-full object-cover max-h-96" />
                 </div>
             </div>
         </>
