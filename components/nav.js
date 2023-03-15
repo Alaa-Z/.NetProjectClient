@@ -12,18 +12,21 @@ const Nav = () => {
   return (
     <>
     <nav className="flex items-center justify-between flex-wrap bg-white p-6">
-      <div className="flex items-center flex-shrink-0 text-pink-600">
+      <div className="flex  items-center flex-shrink-0 text-pink-600">
         <Link href="/" className="font-semibold text-xl tracking-tight">
           Digital View
         </Link>
       </div>
       <div className="hidden lg:block">
-        <div className="text-sm lg:flex-grow">
+        <div className="text-sm lg:flex-grow space-x-4">
           <Link href="/" className="block mt-4 lg:inline-block lg:mt-0 text-pink-600 hover:text-black mr-4">
               Home
           </Link>
           <Link href="/services" className="block mt-4 lg:inline-block lg:mt-0 text-pink-600 hover:text-black mr-4">
               Services
+          </Link>
+          <Link href="/member" className="block mt-4 lg:inline-block lg:mt-0 text-pink-600 hover:text-black">
+            Team
           </Link>
           <Link href="/contact" className="block mt-4 lg:inline-block lg:mt-0 text-pink-600 hover:text-black">
             Contact
@@ -58,6 +61,9 @@ const Nav = () => {
           </Link>
           <Link href="/services" className=" mt-6 lg:inline-block lg:mt-0 text-pink-600 hover:text-black">
               Services
+          </Link>
+          <Link href="/member" className=" mt-6 lg:inline-block lg:mt-0 text-pink-600 hover:text-black">
+              Team
           </Link>
           <Link href="/contact" className="mt-6 lg:inline-block lg:mt-0 text-pink-600 hover:text-black">
             Contact
