@@ -2,6 +2,7 @@ import Nav from "../../components/nav";
 import { useRouter } from "next/router";
 import Typed from 'typed.js';
 import React, { useState, useEffect, useRef } from 'react';
+import Layout from "@/components/layout";
 
 export default function ServiceDetails(props){
     const router = useRouter();
@@ -53,9 +54,8 @@ export default function ServiceDetails(props){
     
     return (
         <>
-        <Nav />
-            <hr className="bg-pink-600 py-4 px-8 ">
-            </hr>
+
+        <Layout>     
             <div className="heroImage-container">
                 <img src={serviceDetails.imagePath} alt={serviceDetails.altText} className="heroImage" />
             </div>
@@ -87,6 +87,7 @@ export default function ServiceDetails(props){
                 </svg>
               </button>}
             </div>
+            </Layout>
         </>
     );
 }

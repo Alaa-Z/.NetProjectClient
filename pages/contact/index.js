@@ -1,7 +1,7 @@
 
-import Nav from "../../components/Nav";
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
+import Layout from "@/components/layout";
 
 
 const MessageApi= `https://localhost:7014/api/MessageApi`;
@@ -46,10 +46,7 @@ export function Contact(){
 
     return (
         <>
-        <Nav />
-        <hr className="bg-pink-600 py-4 px-8 ">
-        </hr>
-       
+        <Layout>
         <h1 className="mt-2 mb-3 text-3xl font-semibold tracking-tight text-center lg:leading-snug text-brand-primary lg:text-4xl dark:text-white">
           Contact 
         </h1>
@@ -58,8 +55,8 @@ export function Contact(){
           <p className="text-lg">We are a here to help.</p>
         </div>
 
-        <div className="grid my-10 md:grid-cols-2 py-8 px-10">
-          <div className="my-10">
+        <div className="grid my-10 md:grid-cols-2">
+          <div className="my-5">
             <h2 className="text-2xl font-semibold dark:text-white">
               Contact Digital View
             </h2>
@@ -117,6 +114,7 @@ export function Contact(){
             </form>
             </div>
         </div>
+        </Layout>
         </>
     );
 }

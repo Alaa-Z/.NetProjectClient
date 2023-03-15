@@ -1,7 +1,7 @@
 
-import Nav from "../../components/Nav";
 import React, { useState, useEffect, useRef } from 'react';
- 
+import Layout from "@/components/layout";
+
 const serviceApi= `https://localhost:7014/api/ServiceApi`;
 
 
@@ -30,7 +30,7 @@ export function Services(){
 
     return (
         <>
-        <Nav />
+        <Layout> 
         <h1 className="flex justify-center mt-8 mb-8 font-bold sm:text-xl sm:leading-relaxed relative">
             Our Services 
             <span className="block absolute bottom-0 left-1/2 w-1/4 transform -translate-x-1/2">
@@ -39,7 +39,7 @@ export function Services(){
             </span>
         </h1>
 
-        <div className=" max-w-7xl grid grid-cols-1 md:grid-cols-2 gap-8 py-8 px-10 mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {serviceData.map(service => (
             <div className="flex flex-col bg-white shadow-md rounded-lg p-6" key={service.id}>
                 <div className="flex-shrink-0">
@@ -52,7 +52,7 @@ export function Services(){
             </div>
         ))}
         </div>
-
+        </Layout> 
         </>
     );
 }
