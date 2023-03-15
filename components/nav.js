@@ -25,8 +25,8 @@ const Nav = () => {
           <Link href="/services" className="block mt-4 lg:inline-block lg:mt-0 text-pink-600 hover:text-black mr-4">
               Services
           </Link>
-          <Link href="/services" className="block mt-4 lg:inline-block lg:mt-0 text-pink-600 hover:text-black">
-            Services
+          <Link href="/contact" className="block mt-4 lg:inline-block lg:mt-0 text-pink-600 hover:text-black">
+            Contact
           </Link>
         </div>
        </div>
@@ -59,8 +59,8 @@ const Nav = () => {
           <Link href="/services" className=" mt-6 lg:inline-block lg:mt-0 text-pink-600 hover:text-black">
               Services
           </Link>
-          <Link href="/Services" className="mt-6 lg:inline-block lg:mt-0 text-pink-600 hover:text-black">
-            Services
+          <Link href="/contact" className="mt-6 lg:inline-block lg:mt-0 text-pink-600 hover:text-black">
+            Contact
           </Link>
         </div>
       </div>
