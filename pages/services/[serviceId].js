@@ -66,7 +66,7 @@ export default function ServiceDetails(props){
             <div className="mx-auto py-8 px-10">
                 <div className="pr-8 w-full mx-auto mt-8 mb-8">
                     <h1 ref={titleRef} 
-                        className="flex justify-center mt-8 mb-8 font-bold sm:text-xl sm:leading-relaxed relative">
+                        className="flex justify-center mt-8 mb-8 font-bold sm:text-xl sm:leading-relaxed relative ">
                         {(serviceDetails.name)}
                     </h1>
                     <div className="max-w-3xl mx-auto" 
@@ -107,7 +107,7 @@ export default function ServiceDetails(props){
                         )}
                     </div>
                     ))}
-                    </div>
+            </div>
             
            <div className="flex justify-center my-8">
                 {hasPreviousService && 

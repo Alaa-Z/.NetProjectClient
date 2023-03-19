@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Layout from "@/components/layout";
-
+import Offers from "@/components/Offers";
 const serviceApi= `https://localhost:7014/api/ServiceApi`;
 
 
@@ -48,9 +48,13 @@ export function Services(){
                 <div className="mt-4">
                     <h1 className="text-lg font-bold text-center mt-8">{service.name}</h1>
                     <div className="mt-2 text-gray-600 text-sm" dangerouslySetInnerHTML={{ __html: service.details }} />
-                </div>
-            </div>
-        ))}
+                    </div>
+                    <Offers 
+                    serviceId={service.id}  
+                    />
+                </div>  
+             ))}
+
         </div>
         </Layout> 
         </>
@@ -58,3 +62,8 @@ export function Services(){
 }
 
 export default Services;
+
+
+
+
+
