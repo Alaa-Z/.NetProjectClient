@@ -7,16 +7,21 @@ import Layout from "@/components/layout";
 export default function ServiceDetails(props){
     const router = useRouter();
     const { serviceDetails } = props;
+    const { offersList } = props;
+
     const serviceId = router.query.serviceId;
 
     // To render details as HTML
     const [detailsHtml, setDetailsHtml] = useState("");
+    const [offerDetailsHtml, setOfferDetailsHtml] = useState("");
+
     const titleRef = useRef(null);
 
     useEffect(() => {
         // Convert the details string to HTML using dangerouslySetInnerHTML
         setDetailsHtml({ __html: serviceDetails.details });
-      
+        setOfferDetailsHtml({ __html: offersList.details });
+
         // To animate the name of the service 
         const typed = new Typed(titleRef.current, {
           strings:  [serviceDetails.name],
@@ -54,13 +59,12 @@ export default function ServiceDetails(props){
     
     return (
         <>
-
         <Layout>     
             <div className="heroImage-container">
                 <img src={serviceDetails.imagePath} alt={serviceDetails.altText} className="heroImage" />
             </div>
             <div className="mx-auto py-8 px-10">
-                <div className="md:w-1/2 pr-8 w-full mx-auto mt-8 mb-8">
+                <div className="pr-8 w-full mx-auto mt-8 mb-8">
                     <h1 ref={titleRef} 
                         className="flex justify-center mt-8 mb-8 font-bold sm:text-xl sm:leading-relaxed relative">
                         {(serviceDetails.name)}
@@ -71,6 +75,39 @@ export default function ServiceDetails(props){
                     </div>
                 </div>
             </div>
+
+            {/* Render this if the offerlist contains elemnts */}
+            {offersList.length > 0 &&
+            <h2 className="flex justify-center mt-8 mb-8 font-bold sm:text-xl sm:leading-relaxed relative">
+            Our Offers in {(serviceDetails.name)}
+            <span className="block absolute bottom-0 left-1/2 w-1/4 transform -translate-x-1/2">
+                <span className="border-b-2 border-pink-600 block h-1">
+                </span>
+            </span>
+            </h2>
+            }
+           
+            <div className="mx-auto py-8 px-10">
+            {offersList.map(offer => (
+                <div className="pr-8 w-full p-10 m-10  shadow-lg mx-auto  hover:bg-gray-100 hover:transform hover:scale-105 transition-all duration-300">
+                    <h2
+                        className="flex justify-center mt-8 mb-8 font-bold sm:text-xl sm:leading-relaxed relative">
+                        {offer.name}
+                    </h2>
+                    <div className="max-w-3xl mx-auto" 
+                        dangerouslySetInnerHTML={{__html: offer.details}}
+                        >
+                    </div>
+                    {offer.imagePath && ( offer.imagePath.includes(".jpg") || offer.imagePath.includes(".png")) ?  (
+                        <div className="w-1/3 mx-auto mt-8">
+                        <img className="w-full" src={offer.imagePath} alt={offer.altText} />
+                        </div>
+                        ) : (
+                        <div />
+                        )}
+                    </div>
+                    ))}
+                    </div>
             
            <div className="flex justify-center my-8">
                 {hasPreviousService && 
@@ -98,7 +135,7 @@ export async function getServerSideProps(context){
     // I added this line after I got a self signed certificate error 
     process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
-    // API for get a service 
+    // API to get a service 
     const serviceApi= `https://localhost:7014/api/ServiceApi/${serviceId}`;
     const res = await fetch(serviceApi);
     const serviceDetails = await res.json();
@@ -106,15 +143,28 @@ export async function getServerSideProps(context){
     const url = new URL(serviceDetails.imagePath, serviceApi);
     serviceDetails.imagePath = url.toString();
 
-    // API for get all services to get the lengt 
-        const servicesApi = `https://localhost:7014/api/ServiceApi/`;
-        const allServicesRes = await fetch(servicesApi);
-        const allServices = await allServicesRes.json();
+    // API to get all services => get the length
+    const servicesApi = `https://localhost:7014/api/ServiceApi/`;
+    const allServicesRes = await fetch(servicesApi);
+    const allServices = await allServicesRes.json();
+
+    // API to get all offers in this service
+    const OffersInServiceApi = `https://localhost:7014/api/ServiceApi/${serviceId}/offers`;
+    const offerRes = await fetch(OffersInServiceApi);
+    const offersList = await offerRes.json();
+    // To get image path
+    offersList.forEach(offer => {
+        if ((offer.imagePath)) {
+          offer.imagePath = `https://localhost:7014${offer.imagePath}`;
+        }
+    });
+
 
     return {
         props: {
             serviceDetails,
-            allServices
+            allServices,
+            offersList
         }
     }
 }
