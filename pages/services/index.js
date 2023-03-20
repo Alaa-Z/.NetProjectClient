@@ -47,10 +47,11 @@ export function Services(){
                 </div>
                 <div className="mt-4">
                     <h1 className="text-lg font-bold text-center mt-8">{service.name}</h1>
-                    <div className="mt-2 text-gray-600 text-sm" dangerouslySetInnerHTML={{ __html: service.details }} />
+                    <div className="text-md mt-4" dangerouslySetInnerHTML={{ __html: service.details }} />
                     </div>
                     <Offers 
                     serviceId={service.id}  
+                    ServiceName={service.name}
                     />
                 </div>  
              ))}

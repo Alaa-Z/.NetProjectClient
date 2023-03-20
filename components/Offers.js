@@ -2,8 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 
 const offersApi = `https://localhost:7014/api/ServiceApi`;
 
-export default function Offers(props) {
-  const { serviceId } = props;
+export default function Offers({serviceId, ServiceName}) {
   const [offersList, setOffersList] = useState([]);
 
   // To render details as HTML
@@ -33,30 +32,34 @@ export default function Offers(props) {
 
   return (
     <div>
-      <h2 className="flex justify-center mt-8 mb-8 font-bold sm:leading-relaxed relative">
-        Our Offers  
-      <span className="block absolute bottom-0 left-1/2 w-1/4 transform -translate-x-1/2">
-            <span className="border-b-2 border-pink-600 block h-1">
-            </span>
-      </span>
-      </h2>
-        {offersList.map(offer => (
-        <div key={offer.id}>
-        <h2>{offer.name}</h2>
-        <h2>{offer.price}</h2>
-        <div className="max-w-3xl mx-auto" 
-          dangerouslySetInnerHTML={{__html: offer.details}}
-        >
-        </div>
-      {offer.imagePath && ( offer.imagePath.includes(".jpg") || offer.imagePath.includes(".png")) ?  (
-        <div className="w-1/3 mt-8 mb-10">
-        <img className="w-full" src={`${offer.imagePath}`} alt={offer.altText} />
-        </div>
-        ) : (
+
+      {offersList.length > 0 ?
+        <h2 className="flex justify-center mt-8 mb-8 font-bold sm:leading-relaxed relative">
+        Our Offers in {ServiceName}
+        <span className="block absolute bottom-0 left-1/2 w-1/4 transform -translate-x-1/2">
+              <span className="border-b-2 border-pink-600 block h-1">
+              </span>
+        </span>
+        </h2>
+      : null}
+
+      {offersList.map(offer => (
+          <div key={offer.id} className="flex flex-col mb-8 bg-white shadow-md rounded-lg p-6">
+            <h2 className="text-lg font-bold text-left mt-4" >{offer.name}</h2>
+            <p className="mt-2 text-gray-600 text-sm"> Pricing starting from:{offer.price}</p>
+            <div className="mt-2 text-lg  font-bold  text-left"
+              dangerouslySetInnerHTML={{__html: offer.details}}
+            >
+            </div>
+            {offer.imagePath && ( offer.imagePath.includes(".jpg") || offer.imagePath.includes(".png")) ?  (
+            <div className="w-1/3 mt-8 mb-10">
+              <img className="w-full" src={`${offer.imagePath}`} alt={offer.altText} />
+            </div>
+          ) : (
         <div />
-        )}
-    </div>
-  ))}
+      )}
+      </div>
+    ))} 
     </div>
   );
 }
