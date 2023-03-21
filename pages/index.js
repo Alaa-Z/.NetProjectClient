@@ -2,6 +2,7 @@ import Layout from "../components/layout";
 import { useState, useEffect } from 'react';
 import Link from 'next/link'
 import Service from "../components/Service";
+import ContactUs from "../components/ContactUs";
 
 const serviceApi= `https://localhost:7014/api/ServiceApi`;
 
@@ -28,8 +29,8 @@ function HomePage(){
             </span>
         </h1>
         
-        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 xl:grid-cols-3 gap-20 ">
-            {serviceData.map(service => (
+        <div className="p-10 mx-auto grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 xl:grid-cols-3 gap-20 ">
+            {serviceData.slice(0, 3).map(service => (
                 <Service
                 key={service.id}
                 id= {service.id}
@@ -40,7 +41,7 @@ function HomePage(){
             ))}
         </div>
 
-        <div className="pl-10 flex justify-start  items-center mt-8 mb-8 font-bold sm:text-xl sm:leading-relaxed relative">
+        <div className="pl-10 flex justify-center  items-center mt-20 mb-8 font-bold sm:text-xl sm:leading-relaxed relative">
             <Link href="/services" className="mr-4">
                 See All Services
             </Link>
@@ -48,6 +49,8 @@ function HomePage(){
                 <span className="border-b-2 border-pink-600 block"></span>
             </span>
         </div>
+
+        <ContactUs />
 
     </Layout>
     )

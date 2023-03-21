@@ -55,7 +55,7 @@ export function Contact(){
           <p className="text-lg">We are a here to help.</p>
         </div>
 
-        <div className="grid my-10 md:grid-cols-2">
+        <div className=" p-10 mx-auto grid my-10 md:grid-cols-2">
           <div className="my-5">
             <h2 className="text-2xl font-semibold dark:text-white">
               Contact Digital View

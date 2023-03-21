@@ -39,7 +39,7 @@ export function Services(){
             </span>
         </h1>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="p-10 mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
         {serviceData.map(service => (
             <div className="flex flex-col bg-white shadow-md rounded-lg p-6" key={service.id}>
                 <div className="flex-shrink-0">

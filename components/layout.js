@@ -5,7 +5,7 @@ function Layout({ children }) {
   return (
     <>
       <Header />
-      <main className="p-10 max-w-7xl mx-auto min-h-screen"  >
+      <main className="pt-10 pb-10 mx-auto min-h-screen"  >
         {children}
         </main>
       <Footer />
