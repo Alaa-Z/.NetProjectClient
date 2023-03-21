@@ -11,7 +11,7 @@ const HeaderImg = () => {
         <h1 className="text-3xl font-extrabold sm:text-5xl mb-10 mt-10">
         Digital View Agency 
         </h1>
-        <h1 className="text-3xl font-extrabold text-blue-700 sm:block">
+        <h1 className="text-3xl font-extrabold  sm:block">
         Experts in bringing brands to life digitally.
         </h1>
         <p className="mt-4 sm:text-xl sm:leading-relaxed">
