@@ -24,17 +24,17 @@ export default function ServiceDetails({ serviceDetails, offersList }){
         setOfferDetailsHtml({ __html: offersList.details });
 
         // To animate the name of the service 
-        const typed = new Typed(titleRef.current, {
-          strings:  [serviceDetails.name],
-          typeSpeed: 80,
-          backSpeed: 50,
-          loop: false,
-          showCursor: false // to hide the cursor
-        });
+        // const typed = new Typed(titleRef.current, {
+        //   strings:  [serviceDetails.name],
+        //   typeSpeed: 80,
+        //   backSpeed: 50,
+        //   loop: false,
+        //   showCursor: false // to hide the cursor
+        // });
       
-        return () => {
-        typed.destroy();
-        }
+        // return () => {
+        // typed.destroy();
+        // }
          
        }, []);
 
@@ -59,9 +59,10 @@ export default function ServiceDetails({ serviceDetails, offersList }){
         </div>
         <div className="mx-auto py-8 px-10">
             <div className="md:w-1/2 pr-8 w-full mx-auto mt-8 mb-8">
-                <h1 ref={titleRef} 
+                {/* <h1 ref={titleRef} */}
+                <h1 
                     className="flex justify-center mt-8 mb-8 font-bold sm:text-xl sm:leading-relaxed relative">
-                    {(serviceDetails.name)}
+                    {serviceDetails.name}
                 </h1>
                 <div className="max-w-3xl mx-auto" 
                     dangerouslySetInnerHTML={{__html: serviceDetails.details}}
