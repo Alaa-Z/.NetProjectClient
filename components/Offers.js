@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-const offersApi = `https://localhost:7014/api/ServiceApi`;
+// const offersApi = `https://localhost:7014/api/ServiceApi`;
+const offersApi = `https://digitalview.azurewebsites.net/api/ServiceApi`;
 
 export default function Offers({serviceId, ServiceName}) {
   const [offersList, setOffersList] = useState([]);
@@ -17,7 +18,9 @@ export default function Offers({serviceId, ServiceName}) {
       const newListOffers = offers.map(offer => {
         return {
           ...offer,
-          imagePath: `https://localhost:7014${offer.imagePath}`
+          // imagePath: `https://localhost:7014${offer.imagePath}`
+          imagePath: `https://digitalview.azurewebsites.net${offer.imagePath}`
+
         }
       });
 

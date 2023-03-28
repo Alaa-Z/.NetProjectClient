@@ -112,7 +112,9 @@ export async function getServerSideProps(context){
     process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
     // API for get a service 
-    const serviceApi= `https://localhost:7014/api/ServiceApi/${serviceId}`;
+    //  const serviceApi= `https://localhost:7014/api/ServiceApi/${serviceId}`;
+    const serviceApi= `https://digitalview.azurewebsites.net/api/ServiceApi/${serviceId}`;
+
     const res = await fetch(serviceApi);
     const serviceDetails = await res.json();
     // To get image path
@@ -121,14 +123,18 @@ export async function getServerSideProps(context){
     // console.log(serviceDetails);
 
     // API to get all offers in this service
-    const OffersInServiceApi = `https://localhost:7014/api/ServiceApi/${serviceId}/offers`;
+    // const OffersInServiceApi = `https://localhost:7014/api/ServiceApi/${serviceId}/offers`;
+    const OffersInServiceApi= `https://digitalview.azurewebsites.net/api/ServiceApi/${serviceId}`;
+
     const offerRes = await fetch(OffersInServiceApi);
     const offersList = await offerRes.json();
     // To get image path
     if (Array.isArray(offersList)) {
         offersList.forEach(offer => {
             if ((offer.imagePath)) {
-            offer.imagePath = `https://localhost:7014${offer.imagePath}`;
+            // offer.imagePath = `https://localhost:7014${offer.imagePath}`;
+            offer.imagePath = `https://digitalview.azurewebsites.net${offer.imagePath}`;
+
             }
         });
     }

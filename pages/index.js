@@ -4,7 +4,8 @@ import Link from 'next/link'
 import Service from "../components/Service";
 import ContactUs from "../components/ContactUs";
 
-const serviceApi= `https://localhost:7014/api/ServiceApi`;
+// const serviceApi= `https://localhost:7014/api/ServiceApi`;
+const serviceApi= `https://digitalview.azurewebsites.net/api/serviceAPI`;
 
 function HomePage(){
     const [serviceData, setServiceData] = useState([]);

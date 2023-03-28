@@ -4,7 +4,8 @@ import axios from 'axios';
 import Layout from "@/components/layout";
 
 
-const MessageApi= `https://localhost:7014/api/MessageApi`;
+// const MessageApi= `https://localhost:7014/api/MessageApi`;
+const MessageApi= `https://digitalview.azurewebsites.net/api/MessageApi`;
 
 
 export function Contact(){
@@ -27,6 +28,12 @@ export function Contact(){
           console.log('Message sent successfully:', response.data);
           //  if message was sent successfully then set status to 'success'
           setStatus('success'); 
+          // Reset form data
+          setFormData({
+            name: '',
+            email: '',
+            msg: '',
+          });
 
         } catch (error) {
           console.error('Error sending message:', error);

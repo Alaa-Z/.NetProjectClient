@@ -3,7 +3,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import Layout from "@/components/layout";
 
 
-const MemberApi= `https://localhost:7014/api/MemberApi`;
+// const MemberApi= `https://localhost:7014/api/MemberApi`;
+const MemberApi= `https://digitalview.azurewebsites.net/api/MemberApi`;
 
 
 export function Member(){

@@ -2,8 +2,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Layout from "@/components/layout";
 import Offers from "@/components/Offers";
-const serviceApi= `https://localhost:7014/api/ServiceApi`;
+// const serviceApi= `https://localhost:7014/api/ServiceApi`;
 
+const serviceApi= `https://digitalview.azurewebsites.net/api/serviceAPI`;
 
 export function Services(){
 
