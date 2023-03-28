@@ -44,20 +44,21 @@ export default function Offers({serviceId, ServiceName}) {
       : null}
 
       {offersList.map(offer => (
-          <div key={offer.id} className="flex flex-col mb-8 bg-white shadow-md rounded-lg p-6">
-            <h2 className="text-lg font-bold text-left mt-4" >{offer.name}</h2>
-            <p className="mt-2 text-gray-600 text-sm"> Pricing starting from:{offer.price}</p>
-            <div className="mt-2 text-lg  font-bold  text-left"
+            <div key={offer.id} className="flex flex-col mb-8 bg-white shadow-md rounded-lg p-6 mb-10">
+                  {offer.imagePath && ( offer.imagePath.includes(".jpg") || offer.imagePath.includes(".png")) ?  (
+              <div className="w-3/4 mt-8 mb-10 mx-auto rounded-lg">
+                <img className="w-full rounded-lg" src={`${offer.imagePath}`} alt={offer.altText} />
+              </div>
+            ) : (
+              <div />
+            )}
+            <h2 className="text-2xl font-bold text-left mt-4 mb-4 text-pink-700 text-center" >{offer.name}</h2>
+            <p className="mt-2 text-gray-600 text-sm"> Pricing starting from: {offer.price} $</p>
+            <div className="mt-2 text-lg  text-left"
               dangerouslySetInnerHTML={{__html: offer.details}}
             >
             </div>
-            {offer.imagePath && ( offer.imagePath.includes(".jpg") || offer.imagePath.includes(".png")) ?  (
-            <div className="w-1/3 mt-8 mb-10">
-              <img className="w-full" src={`${offer.imagePath}`} alt={offer.altText} />
-            </div>
-          ) : (
-        <div />
-      )}
+        
       </div>
     ))} 
     </div>

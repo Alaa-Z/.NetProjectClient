@@ -106,7 +106,7 @@ export default function ServiceDetails({ serviceDetails, offersList }){
         </>
      );
  }
- export async function getServerSideProps(context){
+export async function getServerSideProps(context){
     const { query: { serviceId } } = context;
     // I added this line after I got a self signed certificate error 
     process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
@@ -139,4 +139,4 @@ export default function ServiceDetails({ serviceDetails, offersList }){
             offersList
         }
     }
- }
+}

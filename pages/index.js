@@ -55,8 +55,8 @@ function HomePage(){
         <div class="relative">
             <img class="h-full rounded-lg shadow-lg" src="https://images.unsplash.com/photo-1577760258779-e787a1733016?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="Web Agency" />
             <div class="absolute font-extrabold  bg-gray-100 top-1/4 left-1/4 w-1/2 h-1/2 flex flex-col justify-center items-center">
-                <h2 class="text-3xl font-bold text-pink-500">Digital View</h2>
-                <p class="text-pink-500">We help businesses grow online</p>
+                <h2 class="text-3xl font-bold text-pink-700">Digital View</h2>
+                <p class="text-pink-700">We help businesses grow online</p>
             </div>
         </div>
 

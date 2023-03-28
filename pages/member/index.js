@@ -32,8 +32,14 @@ export function Member(){
                     <div className="rounded-lg shadow-lg h-full block bg-white">
                     <div className="flex justify-center">
                         <div className="flex justify-center" style={{marginTop: "-75px"}}>
-                        <img src={member.imagePath} className="rounded-full mx-auto shadow-lg" alt=""
+                        {member.imagePath && ( member.imagePath.includes("avatar.jpg")) ?  (
+                        <img src="/avatar.jpg" className="rounded-full mx-auto shadow-lg" alt={member.altText}
+                        style={{width: "150px"}} /> 
+                       
+                        ) : (
+                            <img src={member.imagePath} className="rounded-full mx-auto shadow-lg" alt={member.altText}
                             style={{width: "150px"}} />
+                                                  )}
                         </div>
                     </div>
                     <div className="p-6">

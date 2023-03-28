@@ -39,11 +39,11 @@ export function Services(){
             </span>
         </h1>
 
-        <div className="p-10 mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="p-10 mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
         {serviceData.map(service => (
             <div className="flex flex-col bg-white shadow-md rounded-lg p-6" key={service.id}>
-                <div className="flex-shrink-0">
-                    <img src={service.imagePath} alt={service.altText} className="rounded-lg" />
+                <div className="h-96 mx-auto">
+                    <img src={service.imagePath} alt={service.altText} className="rounded-lg w-full h-full object-cover " />
                 </div>
                 <div className="mt-4">
                     <h1 className="text-lg font-bold text-center mt-8">{service.name}</h1>
