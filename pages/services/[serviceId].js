@@ -125,7 +125,7 @@ export async function getServerSideProps(context){
 
     // API to get all offers in this service
     // const OffersInServiceApi = `https://localhost:7014/api/ServiceApi/${serviceId}/offers`;
-    const OffersInServiceApi= `https://digitalview.azurewebsites.net/api/ServiceApi/${serviceId}`;
+    const OffersInServiceApi= `https://digitalview.azurewebsites.net/api/ServiceApi/${serviceId}/offers`;
 
     const offerRes = await fetch(OffersInServiceApi);
     const offersList = await offerRes.json();
