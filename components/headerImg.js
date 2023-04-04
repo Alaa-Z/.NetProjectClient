@@ -27,7 +27,7 @@ const HeaderImg = () => {
           </Link>
           <Link
             className="block w-1/2 rounded px-12 py-3 text-sm font-medium text-white shadow hover:text-pink-600 focus:outline-none focus:ring active:text-pink-50 sm:w-auto"
-            href="/about"
+            href="/member"
           >
             About us
           </Link>
