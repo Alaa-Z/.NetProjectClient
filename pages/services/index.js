@@ -44,7 +44,9 @@ export function Services(){
         {serviceData.map(service => (
             <div className="flex flex-col bg-white shadow-md rounded-lg p-6" key={service.id}>
                 <div className="h-96 mx-auto">
-                    <img src={service.imagePath} alt={service.altText} className="rounded-lg w-full h-full object-cover " />
+                    {service.imagePath && ( service.imagePath.includes(".jpg") || service.imagePath.includes(".png")) ?  (
+                    <img src={service.imagePath} alt={service.altText} className="rounded-lg w-full h-full object-cover " />)
+                    :null }
                 </div>
                 <div className="mt-4">
                     <h1 className="text-lg font-bold text-center mt-8">{service.name}</h1>

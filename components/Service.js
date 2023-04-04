@@ -5,7 +5,12 @@ const Service = ({key, id, name, imagePath, altText}) => {
     return (
         <Fragment>
             <div key={key} className="shadow-lg mx-auto  hover:bg-gray-100 hover:transform hover:scale-105 transition-all duration-300">
-                <img className="w-full mb-8 service-img" src={imagePath} alt={altText}></img>
+            {imagePath && ( imagePath.includes(".jpg") || imagePath.includes(".png")) ?  (
+
+                <img className="w-full mb-8 service-img" src={imagePath} alt={altText}></img>)
+                :
+                null
+                }
                 <div className="px-6 py-4 flex flex-col ">
                     <div className="font-normal text-xl text-center mb-8 sm:text-xl sm:leading-relaxed">
                     {name}
